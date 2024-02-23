@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-center pt-5">
+  <div class="row container d-flex justify-content-center">
+    <div class="col-md-12">
+      <div class="card px-3">
+        <div class="card-body">
+          <h4 class="card-title">Todo list</h4>
+          <div class="list-container">
+            <ul>
+              <li *ngFor="let task of tasks" [class.completed]="task.completed">
+                <div class="d-flex flex-row">
+                  <div class="checkbox"><input class="checkbox" type="checkbox" [checked]="task.completed" (change)="markCompleted(task.id, $event)"> </div>
+                  <div>{{task.title}}</div>
+                  <div class="ml-auto">
+                    <button [routerLink]="['/edit-task', task.id]" class="mr-1">Edit</button>
+                    <button (click)="deleteTask(task.id)">Delete</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
